@@ -1,0 +1,65 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+# *.db
+# *.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+
+# Django
+*.log
+*.pot
+*.pyc
+# *.sqlite3
+# *.db
+*.log
+media/
+static/
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Environment variables
+.env
+.env.*
+*.env
+!*.env.example
+
+# Virtualenv
+venv/
+ENV/
+env/
+.venv/
+.Python
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+
+# Ubuntu-specific files
+*~
+# Swap files (e.g. Vim or editors creating temporary files)
+*.swp
+# Backup files (e.g. created by editors like vim)
+*.bak
+
+# Linux trash folder which might appear on file systems
+.Trash-*
+
+# macOS (if you're sharing across different OS)
+.DS_Store
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Other
+*.bak
