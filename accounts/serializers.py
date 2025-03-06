@@ -27,9 +27,6 @@ class CustomRegisterSerializer(RegisterSerializer):
         user.save()
 
 
-
-
-
 class CustomUserDetailsSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -45,8 +42,6 @@ class CustomUserDetailsSerializer(serializers.ModelSerializer):
             "is_email_verified",
             "is_phone_verified",
             "profile_picture",
-            "last_purchase_date",
             "online_status",
             "account_status",
         ]
-
