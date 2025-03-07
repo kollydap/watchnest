@@ -158,6 +158,10 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "EXCEPTION_HANDLER": "exceptions.custom_exception_handler",
+    "DEFAULT_RENDERER_CLASSES": [
+        "renderers.json_renderer.CustomJSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",  # Optional for API browsing
+    ],
 }
 
 REST_AUTH = {
