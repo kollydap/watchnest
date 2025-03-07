@@ -96,9 +96,9 @@ class WatchPartyConsumer(AsyncWebsocketConsumer):
         self.room_group_name = f"watchparty_{self.room_name}"
 
         # If user is not authenticated, close connection but define room_group_name first
-        if isinstance(self.user, AnonymousUser):
-            await self.close()
-            return
+        # if isinstance(self.user, AnonymousUser):
+        #     await self.close()
+        #     return
 
         # Join the group
         await self.channel_layer.group_add(self.room_group_name, self.channel_name)
