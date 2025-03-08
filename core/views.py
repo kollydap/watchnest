@@ -59,3 +59,28 @@ def join_room(request, pk):
 
     except Room.DoesNotExist:
         return Response({"error": "Room not found"}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(["GET"])
+def list_public_rooms(request):
+    """Get all public rooms."""
+    public_rooms = Room.objects.filter(is_private=False).values("id", "name", "host_id")
+    return Response({"rooms": list(public_rooms)}, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def list_user_rooms(request):
+    """Get all rooms where the authenticated user is a member."""
+    user_rooms = RoomMember.objects.filter(user=request.user).values(
+        "room__id", "room__name", "room__host_id"
+    )
+    return Response({"rooms": list(user_rooms)}, status=status.HTTP_200_OK)
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def list_rooms_created_by_user(request):
+    """Get all rooms created by the authenticated user."""
+    created_rooms = Room.objects.filter(host=request.user).values("id", "name")
+    return Response({"rooms": list(created_rooms)}, status=status.HTTP_200_OK)
